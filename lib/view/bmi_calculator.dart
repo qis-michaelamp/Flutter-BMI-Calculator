@@ -65,7 +65,9 @@ class _BodyMassIndexCalculatorState extends State<BodyMassIndexCalculator> {
               style: SetFontStyle.menuTitle,
             ),
             Text(
-              menuTitle == "WEIGHT" ? _weight.toString() : _age.toString(),
+              menuTitle == "WEIGHT"
+                  ? _weight.toString() + " kg"
+                  : _age.toString(),
               style: SetFontStyle.numStyle,
             ),
             Row(

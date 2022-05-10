@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bootcamp_edspert/styles/styles.dart';
 import 'package:flutter_bootcamp_edspert/view/bmi_calculator.dart';
 import 'package:flutter_bootcamp_edspert/view/splash_screen.dart';
+import 'package:flutter_bootcamp_edspert/view/splash_screen_old.dart';
 import 'package:intl/intl.dart';
 
 void main() {
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: 'Bootcamp Flutter',
       // home: const MyHomePage(title: 'Bootcamp Flutter - Michael Andhika'),
-      home: BodyMassIndexCalculator(),
+      // home: BodyMassIndexCalculator(),
+      home: SplashScreen(),
     );
   }
 }
