@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bootcamp_edspert/styles/styles.dart';
 import 'package:flutter_bootcamp_edspert/view/bmi_calculator.dart';
 import 'package:flutter_bootcamp_edspert/view/splash_screen.dart';
-import 'package:flutter_bootcamp_edspert/view/splash_screen_old.dart';
 import 'package:intl/intl.dart';
 
 void main() {

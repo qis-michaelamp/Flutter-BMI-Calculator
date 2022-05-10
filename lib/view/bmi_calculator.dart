@@ -147,15 +147,15 @@ class _BodyMassIndexCalculatorState extends State<BodyMassIndexCalculator> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Color(SetColor.primary),
+        backgroundColor: const Color(SetColor.primary),
         appBar: AppBar(
           title: const Text("BMI Calculator"),
           centerTitle: true,
-          backgroundColor: Color(SetColor.primary),
+          backgroundColor: const Color(SetColor.primary),
         ),
         body: SafeArea(
           child: Container(
-            margin: EdgeInsets.all(10),
+            margin: const EdgeInsets.all(10),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.center,
