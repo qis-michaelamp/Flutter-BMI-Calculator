@@ -128,7 +128,7 @@ class BodyMassIndexResult extends StatelessWidget {
                     width: MediaQuery.of(context).size.width * 0.9,
                     height: MediaQuery.of(context).size.height * 0.08,
                     decoration: BoxDecoration(
-                        color: Colors.pinkAccent,
+                        color: const Color(SetColor.secondary),
                         borderRadius: BorderRadius.circular(20)),
                     child: const Center(
                       child: Text(

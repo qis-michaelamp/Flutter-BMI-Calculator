@@ -11,8 +11,8 @@ class CustomRadio extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
         color: _gender.isSelected
-            ? Color(SetColor.menuColor)
-            : Color(SetColor.menuColor).withOpacity(0.1),
+            ? Color(SetColor.primary)
+            : Color(SetColor.primary).withOpacity(0.1),
         child: Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width * 0.4,
