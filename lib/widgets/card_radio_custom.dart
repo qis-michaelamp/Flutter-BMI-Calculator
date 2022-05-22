@@ -11,8 +11,8 @@ class CustomRadio extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
         color: _gender.isSelected
-            ? Color(SetColor.primary)
-            : Color(SetColor.primary).withOpacity(0.1),
+            ? Color(SetColor.primary).withOpacity(0.1)
+            : Color(SetColor.primary).withOpacity(0.8),
         child: Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width * 0.4,
@@ -24,14 +24,14 @@ class CustomRadio extends StatelessWidget {
             children: <Widget>[
               Icon(
                 _gender.icon,
-                color: _gender.isSelected ? Colors.white : Colors.grey,
+                color: _gender.isSelected ? Colors.white : Colors.blueGrey,
                 size: 50,
               ),
               const SizedBox(height: 10),
               Text(
                 _gender.name,
                 style: TextStyle(
-                    color: _gender.isSelected ? Colors.white : Colors.grey),
+                    color: _gender.isSelected ? Colors.white : Colors.blueGrey),
               )
             ],
           ),

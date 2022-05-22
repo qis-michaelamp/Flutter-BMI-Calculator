@@ -7,17 +7,22 @@ import 'package:flutter_bootcamp_edspert/widgets/card_radio_custom.dart';
 import 'package:numberpicker/numberpicker.dart';
 
 class BodyMassIndexCalculator extends StatefulWidget {
-  const BodyMassIndexCalculator({Key? key}) : super(key: key);
+  String? gender;
+
+  BodyMassIndexCalculator({this.gender});
 
   @override
   State<BodyMassIndexCalculator> createState() =>
-      _BodyMassIndexCalculatorState();
+      _BodyMassIndexCalculatorState(gender: gender);
 }
 
 class _BodyMassIndexCalculatorState extends State<BodyMassIndexCalculator> {
+  String? gender;
   double _height = 100;
   double _weight = 60;
   double _age = 20;
+
+  _BodyMassIndexCalculatorState({this.gender});
 
   Widget _buildCardSlider(IconData icon, String menuTitle) {
     return Card(
@@ -31,44 +36,13 @@ class _BodyMassIndexCalculatorState extends State<BodyMassIndexCalculator> {
               menuTitle,
               style: SetFontStyle.menuTitle,
             ),
-            Text(
-              _height.toInt().toString() + " cm",
-              style: SetFontStyle.numStyle,
-            ),
-            SliderTheme(
-              data: SliderTheme.of(context).copyWith(
-                activeTrackColor: Colors.red[700],
-                inactiveTrackColor: Colors.red[100],
-                trackShape: const RoundedRectSliderTrackShape(),
-                trackHeight: 4.0,
-                thumbShape:
-                    const RoundSliderThumbShape(enabledThumbRadius: 12.0),
-                thumbColor: Colors.redAccent,
-                overlayColor: Colors.red.withAlpha(32),
-                overlayShape:
-                    const RoundSliderOverlayShape(overlayRadius: 28.0),
-                tickMarkShape: const RoundSliderTickMarkShape(),
-                activeTickMarkColor: Colors.red[700],
-                inactiveTickMarkColor: Colors.red[100],
-                valueIndicatorShape: const PaddleSliderValueIndicatorShape(),
-                valueIndicatorColor: Colors.redAccent,
-                valueIndicatorTextStyle: const TextStyle(
-                  color: Colors.white,
-                ),
-              ),
-              child: Slider(
-                value: _height,
-                min: 0,
-                max: 250,
-                divisions: 250,
-                activeColor: const Color(SetColor.secondary),
-                inactiveColor: const Color(SetColor.primary).withOpacity(0.9),
-                onChanged: (value) {
-                  setState(() {
-                    _height = value;
-                  });
-                },
-              ),
+            NumberPicker(
+              itemHeight: 40,
+              value: _height.toInt(),
+              minValue: 0,
+              maxValue: 200,
+              axis: Axis.horizontal,
+              onChanged: (value) => setState(() => _height = value.toDouble()),
             ),
           ],
         ),
@@ -225,38 +199,23 @@ class _BodyMassIndexCalculatorState extends State<BodyMassIndexCalculator> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.15,
-                  width: MediaQuery.of(context).size.width,
-                  child: Center(
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      shrinkWrap: true,
-                      itemCount: genders.length,
-                      itemBuilder: (context, index) {
-                        return InkWell(
-                          splashColor: Colors.pinkAccent,
-                          onTap: () {
-                            setState(() {
-                              genders.forEach(
-                                  (gender) => gender.isSelected = false);
-                              genders[index].isSelected = true;
-                            });
-                          },
-                          child: CustomRadio(genders[index]),
-                        );
-                      },
-                    ),
-                  ),
-                ),
                 Center(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.end,
                     children: <Widget>[
+                      Image.asset(
+                        gender == "M"
+                            ? "assets/images/male_transparent.png"
+                            : "assets/images/female_transparent.png",
+                        scale: 1,
+                        height: _height,
+                        width: 100,
+                        fit: BoxFit.fitHeight,
+                      ),
                       Container(
                         height: MediaQuery.of(context).size.height * 0.2,
-                        width: MediaQuery.of(context).size.width * 0.8,
+                        width: MediaQuery.of(context).size.width * 0.65,
                         child: _buildCardSlider(Icons.height, "HEIGHT"),
                       ),
                     ],

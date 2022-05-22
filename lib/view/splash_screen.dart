@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bootcamp_edspert/styles/styles.dart';
+import 'package:flutter_bootcamp_edspert/view/gender_options.dart';
 
 import 'bmi_calculator.dart';
 
@@ -21,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void navigationPage() {
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(
-        builder: (context) => const BodyMassIndexCalculator(),
+        builder: (context) => const GenderOptionsPage(),
       ),
     );
   }
